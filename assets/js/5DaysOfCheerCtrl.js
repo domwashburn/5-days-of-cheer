@@ -3,7 +3,7 @@ var month = date.getMonth() + 1;
 var today = date.getDate();
 var ary = [];
 var promoItem = document.getElementsByClassName('promoItem');
-var promoDates = [28, 29, 30, 31, 1002];
+var promoDates = [4, 5, 6, 7, 8];
 var validDates;
 var validDate;
 var isValid;
