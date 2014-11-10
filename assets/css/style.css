@@ -112,7 +112,7 @@ body {
 .promoItem:nth-child(1) .inactiveMessage {
   position: relative;
   left: 5px;
-  z-index: 0;
+  z-index: 4;
 }
 
 .promoItem:nth-child(2) .promoImage {
@@ -128,7 +128,7 @@ body {
 .promoItem:nth-child(2) .inactiveMessage {
   position: relative;
   left: 8px;
-  z-index: 0;
+  z-index: 4;
 }
 
 .promoItem:nth-child(3) .promoImage {
@@ -144,7 +144,7 @@ body {
 .promoItem:nth-child(3) .inactiveMessage {
   position: relative;
   left: -2px;
-  z-index: 0;
+  z-index: 4;
 }
 
 .promoItem:nth-child(4) .promoImage {
@@ -160,7 +160,7 @@ body {
 .promoItem:nth-child(4) .inactiveMessage {
   position: relative;
   left: -6px;
-  z-index: 0;
+  z-index: 4;
 }
 
 .promoItem:nth-child(5) .promoImage {
@@ -176,7 +176,7 @@ body {
 .promoItem:nth-child(5) .inactiveMessage {
   position: relative;
   left: -20px;
-  z-index: 0;
+  z-index: 4;
 }
 
 .promoImage {
@@ -199,32 +199,36 @@ body {
   display: none;
 }
 
-.inactive .inactiveMessage {
-  display: visible;
-}
-
 .inactiveMessage {
+  box-sizing: border-box;
+  padding: 10px 10px 6px 10px;
   opacity: 0;
   float: left;
-  border: 1px dashed #333;
-  -webkit-border-top-right-radius: 5px;
-  -webkit-border-bottom-right-radius: 0;
-  -webkit-border-bottom-left-radius: 0;
-  -webkit-border-top-left-radius: 0;
-  -moz-border-radius-topright: 5px;
-  -moz-border-radius-bottomright: 0;
-  -moz-border-radius-bottomleft: 0;
-  -moz-border-radius-topleft: 0;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-  -webkit-background-clip: padding-box;
-  -moz-background-clip: padding;
-  background-clip: padding-box;
+  background-color: #fefefe;
+  border: 1px dashed #fcfcfc;
+  -webkit-box-shadow: 0px 5px 2px -4px #888;
+  -moz-box-shadow: 0px 5px 2px -4px #888;
+  box-shadow: 0px 5px 2px -4px #888;
+  border-radius: 5px;
 }
 .inactiveMessage p {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 12px;
   color: #F53B6A;
+  font-family: Arial, sann-serif;
+}
+.inactiveMessage span {
+  font-size: 16px;
+  padding-top: 7px;
+  display: block;
+}
+.inactiveMessage:before {
+  opacity: 1;
+  position: absolute;
+  width: 4px;
+  height: 20px;
+  background-color: #6A431E;
 }
 
 .btn-primary--pink {
