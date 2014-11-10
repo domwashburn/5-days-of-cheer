@@ -5,6 +5,8 @@ var ary = [];
 var promoItem = document.getElementsByClassName('promoItem');
 var promoTags = document.getElementsByClassName('promoImage');
 var promoCode = document.getElementsByClassName('promoCode');
+var promoContainer = document.getElementsByClassName('promoContainer');
+var inactiveMessage = document.getElementsByClassName('inactiveMessage');
 var promoDates = [today-2, today-1, today, today+1, today+2];
 //var promoDates = [17, 18, 19, 20, 21];
 var promoDate;
@@ -47,6 +49,7 @@ function theDate( isValid ) {
 function thePromo( validDates ) {
 	var promoLength = Object.keys(validDates).length - 	1;
 	for ( i = 0; i <= promoLength; i++) {
+		
 		if( validDates[i] ) {
 			//document.write('<h3>'+ Object.keys(validDates)[i] + ' : ' + validDates[i]  +'</h3>');
 			addActiveClass();
@@ -79,36 +82,79 @@ function showInactiveMessage(){
 	var currentPromoItem = promoItem[i];
 	//console.log(currentPromoItem);
 	var hasInactiveMessage = currentPromoItem.getElementsByClassName( 'inactiveMessage' );
-	//console.log( hasInactiveMessage );
+	var theInactiveMessage = inactiveMessage[i];
 	var promoDate = promoDates[i];
 	//console.log( promoDate );
 	var promoTag = promoTags[i];
 
 	promoItem[i].addEventListener('click', function() { 
-		console.log("I'm shakin bitch");
-
 		shake(promoTag);
-		if ( hasInactiveMessage.length == 0 ) {
-			
-			createInactiveMessage(currentPromoItem, promoDate); 
-			//return hasInactiveMessage = currentPromoItem.getElementsByClassName( 'inactiveMessage' );
+		if ( window.getComputedStyle(theInactiveMessage).getPropertyValue('opacity') == 0 ) {
+			createInactiveMessage(theInactiveMessage, promoDate);
+			revealInactiveMessage(theInactiveMessage);
 		}
 	}, false);
 };
 
-function createInactiveMessage(currentPromoItem, promoDate) {
-	//console.log(currentPromoItem);
-	var node = document.createElement('div');
+function createInactiveMessage(theInactiveMessage, promoDate) {
+	var node = theInactiveMessage;
 	var textNode = '<p>Don\'t open until <span>11/' + promoDate + '/14</span></p>';
 	node.innerHTML = textNode;
-	currentPromoItem.appendChild( node ).classList.add('inactiveMessage');
+}
+
+function revealInactiveMessage(theInactiveMessage) {
+	var tl = new TimelineMax({delay:0.5});
+	tl.from(theInactiveMessage, 0.25, {top: -50})
+	.from(theInactiveMessage, 0.3, {opacity: 0}, 0.05)
+	.to(theInactiveMessage, 0.3, {opacity: 1}, 0.05)
+
 }
 
 function revealPromo() {
-
+	var promoTag = promoTags[i];
+	var tl = new TimelineMax({delay:0.5});
+	tl.staggerTo(promoTag, 0.2, {top: -25 })
+	.to(promoTag, 0.15, {top: -10 })
+	.to(promoTag, 0.4, {top: -275 })
+	.to(promoContainer, 0.3, {opacity: 1}, 0.3)
+	promoItem[i].addEventListener('click', function() { shake(promoTag) }, false);
 }
 
 function shake(promoTag) {
-	console.log( promoTag );
-	TweenLite.to(promoTag, 0.5, {left:-3});
+	var angle = getRotation(promoTag);
+	var tl = new TimelineMax({repeat:1, yoyo:true});
+	tl.to(promoTag, .15, {rotation: angle+5 })
+	.to(promoTag, .1, {rotation: angle-3 })
+	.to(promoTag, .08, {rotation: angle+3 })
 };
+
+function getRotation(promoTag) {
+	// calculations from: http://css-tricks.com/get-value-of-css-rotation-through-javascript/
+	var el = promoTag;
+	var st = window.getComputedStyle(el, null);
+	var tr = st.getPropertyValue("-webkit-transform") ||
+	         st.getPropertyValue("-moz-transform") ||
+	         st.getPropertyValue("-ms-transform") ||
+	         st.getPropertyValue("-o-transform") ||
+	         st.getPropertyValue("transform") ||
+	         "fail...";
+
+	//console.log('Matrix: ' + tr);
+	// rotation matrix - http://en.wikipedia.org/wiki/Rotation_matrix
+
+	var values = tr.split('(')[1];
+	    values = values.split(')')[0];
+	    values = values.split(',');
+	var a = values[0];
+	var b = values[1];
+	var c = values[2];
+	var d = values[3];
+
+	var scale = Math.sqrt(a*a + b*b);
+
+	// arc sin, convert from radians to degrees, round
+	var angle = Math.round(Math.atan2(b, a) * (180/Math.PI));
+	return angle;
+	// works!
+	//console.log('Rotate: ' + angle + 'deg');
+}
