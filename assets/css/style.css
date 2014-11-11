@@ -107,7 +107,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -webkit-transform: rotate(3deg);
   transform: rotate(3deg);
   z-index: 2;
-  transform-origin: 50% 0%;
+  -moz-transform-origin: 50% 0% 50%;
+  -ms-transform-origin: 50% 0% 50%;
+  -webkit-transform-origin: 50% 0% 50%;
+  transform-origin: 50% 0% 50%;
 }
 
 .promoItem:nth-child(1) .inactiveMessage {
@@ -123,7 +126,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -webkit-transform: rotate(-3deg);
   transform: rotate(-3deg);
   z-index: 3;
-  transform-origin: 50% 0%;
+  -moz-transform-origin: 50% 0% 50%;
+  -ms-transform-origin: 50% 0% 50%;
+  -webkit-transform-origin: 50% 0% 50%;
+  transform-origin: 50% 0% 50%;
 }
 
 .promoItem:nth-child(2) .inactiveMessage {
@@ -139,7 +145,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -webkit-transform: rotate(5deg);
   transform: rotate(5deg);
   z-index: 2;
-  transform-origin: 50% 0%;
+  -moz-transform-origin: 50% 0% 50%;
+  -ms-transform-origin: 50% 0% 50%;
+  -webkit-transform-origin: 50% 0% 50%;
+  transform-origin: 50% 0% 50%;
 }
 
 .promoItem:nth-child(3) .inactiveMessage {
@@ -155,7 +164,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -webkit-transform: rotate(-5deg);
   transform: rotate(-5deg);
   z-index: 1;
-  transform-origin: 50% 0%;
+  -moz-transform-origin: 50% 0% 50%;
+  -ms-transform-origin: 50% 0% 50%;
+  -webkit-transform-origin: 50% 0% 50%;
+  transform-origin: 50% 0% 50%;
 }
 
 .promoItem:nth-child(4) .inactiveMessage {
@@ -171,7 +183,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -webkit-transform: rotate(7deg);
   transform: rotate(7deg);
   z-index: 2;
-  transform-origin: 50% 0%;
+  -moz-transform-origin: 50% 0% 50%;
+  -ms-transform-origin: 50% 0% 50%;
+  -webkit-transform-origin: 50% 0% 50%;
+  transform-origin: 50% 0% 50%;
 }
 
 .promoItem:nth-child(5) .inactiveMessage {
@@ -341,7 +356,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   position: relative;
   width: 100%;
   height: 17px;
-  background-image: url("../images/cheer-stripes.png");
+  background-image: url("/resources/store/images/expressionery/special-offers/5-days-of-cheer/cheer-stripes.png");
   background-repeat: repeat-x;
   z-index: 100;
 }
