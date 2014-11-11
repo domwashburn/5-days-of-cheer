@@ -1,15 +1,21 @@
 $pink : #F53B6A;
-body {
-	width: 940px;
-	margin: 0 auto;
-	background-color: whitesmoke;
-}
+$font-stack : 'Raleway', Arial, sans-serif;
+// body {
+// 	//width: 940px;
+// 	margin: 0 auto;
+// 	background-color: whitesmoke;
+// }
 .promoWrap {
 	width: auto;
 	margin: 0 auto;
-	width: 680px;
-	overflow: visible;
-	background-color: whitesmoke;
+	overflow-y: hidden;
+	width: 755px;
+	overflow-x: hidden;
+	//background-color: whitesmoke;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	* {
+		font-family: $font-stack;
+	}
 }
 .promoItem {
 	float: left;
@@ -17,6 +23,9 @@ body {
 	overflow: visible;
 	width: 120px;
 	margin-right: 20px;
+	&:first-child {
+		margin-left: 50px;
+	}
 	&:last-child {
 		margin-right: 0;
 	}
@@ -58,8 +67,14 @@ $z-index : 2 3 2 1 2 ;
 	.inactive & {
 		display: none;
 	}
+	.btn-primary--pink {
+		margin-top: 7px;
+	}
 }
-.promoInfo {
+
+.promoCode {
+	line-height: 2.3;
+	text-align: center;
 }
 .active {
 	//background-color: greenyellow;
@@ -72,17 +87,18 @@ $z-index : 2 3 2 1 2 ;
 	box-sizing: border-box;
 	padding: 10px 10px 6px 10px;
 	opacity: 0;
+	height: 65px;
 	float: left;
-	background-color: #fefefe;
-	border: 1px dashed darken(#fefefe, .75);
+	background-color: #72B4AC;
+	border: 1px solid darken(#72B4AC, .75);
 	@include box-shadow(rgba(#888, .5) 0px 5px 2px -4px);
 	border-radius: 5px;
 	p {
 		text-align: center;
 		text-transform: uppercase;
 		font-size: 12px;
-		color: $pink;
-		font-family: Arial, sann-serif;
+		color: #F9F5E3;
+		font-family: 'Raleway', Arial, sann-serif;
 	}
 	span {
 		font-size: 16px;
@@ -99,21 +115,110 @@ $z-index : 2 3 2 1 2 ;
 }
 
 .btn-primary--pink {
-	font-family: Arial, sans-serif;
+	font-family: $font-stack;
 	font-size: 14px;
 	text-transform: uppercase;
+	text-decoration: none;
 	color: $pink;
 	border: 2px solid $pink;
 	padding: 4px 18px;
 	text-decoration: none;
+	&:hover {
+		text-decoration: none;
+		color: darken($pink, 25);
+		border: 2px solid darken($pink, 25);
+	}
 }
 
-//heads up display
-.hud {
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	background-color: rgba(0,0,0, .75);
-	color: greenyellow;
-	padding: 15px 20px;
+.promoText {
+	width: 730px;
+	margin: 0 auto;
+}
+
+.hgroup {
+	width: 670px;
+	margin: 0 auto;
+}
+
+.heading__promo-h1, .heading__promo-h2, .text__body-copy {
+	font-family: $font-stack;
+}
+
+.headding__promo-h1, .heading__promo-h2 {
+	//float: left;
+	text-transform: uppercase;
+}
+
+.heading__promo-h1 {
+	color: #626262;
+	float: left;
+	font-size: 64px;
+}
+
+.heading__promo-h2 {
+	color: #fff;
+	background-color: #000;
+	padding: 8px 20px;
+	float: left;
+	top: 22px;
+	position: relative;
+	margin-left: 12px;
+}
+
+.text__body-copy {
+	margin: 24px 0 30px 0;
+	line-height: 1.3;
+	clear: both;
+	text-align: center;
+}
+
+.social { 
+	width: 450px;
+	margin: 0 auto;
+	margin-bottom: 45px;
+}
+
+.btn-cta {
+	float: left;
+	margin-right: 20px;
+	* {
+		float: left;
+	}
+	span {
+		position: relative;
+		top: 10px;
+		margin-left: 8px;
+	}
+}
+
+.share__social {
+	float: left;
+	p {
+		font-family: $font-stack;
+		margin-bottom: 5px;
+	}
+}
+
+.share__social-icons {
+	margin: 0 auto;
+	width: 85px;
+	.share__icon {
+		cursor: pointer;
+		margin-right: 3px;
+	}
+	a:last-child {
+		margin-right: 0;
+	}
+}
+
+.cheer-stripes {
+	position: relative;
+	width: 100%;
+	height: 17px;
+	background-image: url('../images/cheer-stripes.png');
+	background-repeat: repeat-x;
+	z-index: 100;
+	&:first-of-type {
+		@include box-shadow(rgba(#888, .5) 0px 5px 2px -4px);
+	}
 }

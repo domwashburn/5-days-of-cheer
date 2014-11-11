@@ -7,6 +7,7 @@ var promoTags = document.getElementsByClassName('promoImage');
 var promoCode = document.getElementsByClassName('promoCode');
 var promoContainer = document.getElementsByClassName('promoContainer');
 var inactiveMessage = document.getElementsByClassName('inactiveMessage');
+var promoLegal = document.getElementById('legal');
 var promoDates = [today-2, today-1, today, today+1, today+2];
 //var promoDates = [17, 18, 19, 20, 21];
 var promoDate;
@@ -48,11 +49,13 @@ function theDate( isValid ) {
 
 function thePromo( validDates ) {
 	var promoLength = Object.keys(validDates).length - 	1;
+
 	for ( i = 0; i <= promoLength; i++) {
 		
 		if( validDates[i] ) {
 			//document.write('<h3>'+ Object.keys(validDates)[i] + ' : ' + validDates[i]  +'</h3>');
 			addActiveClass();
+			changeLegal();
 			addPromoCode();
 			//console.log( promoCode[i] )
 			revealPromo();
@@ -66,6 +69,17 @@ function thePromo( validDates ) {
 
 function addActiveClass() {
 	promoItem[i].classList.add('active');
+}
+
+function changeLegal() {
+	var legal = [
+		'*Limited time offer valid through November 23 at 11:55 PM CST.  Save 30% off Holiday Photo Cards with offer code "CIDER30". Certain exclusions apply: any products outside the \'Holiday Photo Cards\' category.  This offer may not be combined with any other offer or discount, and shipping fees and sales tax are separate. To prevent abuse, prices, specifications, and availability subject to change without notice from Expressionery.com.<br /><br />',
+		'*Limited time offer valid through November 23 at 11:55 PM CST.  Save 30% off Holiday Photo Cards with offer code "CIDER30". Certain exclusions apply: any products outside the \'Holiday Photo Cards\' category.  This offer may not be combined with any other offer or discount, and shipping fees and sales tax are separate. To prevent abuse, prices, specifications, and availability subject to change without notice from Expressionery.com.<br /><br />*Limited time offer valid through November 23 at 11:55 PM CST.  Receive 30% off all stamps with offer code "FROSTY14."  Standard retail price of stamp must be $40 or more.  Embossers, stamp refills and alignment tools not included. This offer may not be combined with any other offer or discount, and shipping fees and sales tax are separate. To prevent abuse, prices, specifications, and availability subject to change without notice from Expressionery.com.<br /><br />',
+		'*Limited time offer valid through November 23 at 11:55 PM CST.  Save 30% off Holiday Photo Cards with offer code "CIDER30". Certain exclusions apply: any products outside the \'Holiday Photo Cards\' category.  This offer may not be combined with any other offer or discount, and shipping fees and sales tax are separate. To prevent abuse, prices, specifications, and availability subject to change without notice from Expressionery.com.<br /><br />*Limited time offer valid through November 23 at 11:55 PM CST.  Receive 30% off all stamps with offer code "FROSTY14."  Standard retail price of stamp must be $40 or more.  Embossers, stamp refills and alignment tools not included. This offer may not be combined with any other offer or discount, and shipping fees and sales tax are separate. To prevent abuse, prices, specifications, and availability subject to change without notice from Expressionery.com.<br /><br />*Limited time offer valid through November 23 at 11:55 PM CST.  Receive one free set of 120 address labels with the purchase of any holiday photo cards with  offer code "PUMPKIN14." Certain exclusions apply: any products outside the \'Holiday Photo Cards\' or \'Holiday Address Labels\' category.  This offer may not be combined with any other offer or discount, and shipping fees and sales tax are separate. To prevent abuse, prices, specifications, and availability subject to change without notice from Expressionery.com.<br /><br />',
+		'*Limited time offer valid through November 23 at 11:55 PM CST.  Save 30% off Holiday Photo Cards with offer code "CIDER30". Certain exclusions apply: any products outside the \'Holiday Photo Cards\' category.  This offer may not be combined with any other offer or discount, and shipping fees and sales tax are separate. To prevent abuse, prices, specifications, and availability subject to change without notice from Expressionery.com.<br /><br />*Limited time offer valid through November 23 at 11:55 PM CST.  Receive 30% off all stamps with offer code "FROSTY14."  Standard retail price of stamp must be $40 or more.  Embossers, stamp refills and alignment tools not included. This offer may not be combined with any other offer or discount, and shipping fees and sales tax are separate. To prevent abuse, prices, specifications, and availability subject to change without notice from Expressionery.com.<br /><br />*Limited time offer valid through November 23 at 11:55 PM CST.  Receive one free set of 120 address labels with the purchase of any holiday photo cards with  offer code "PUMPKIN14." Certain exclusions apply: any products outside the \'Holiday Photo Cards\' or \'Holiday Address Labels\' category.  This offer may not be combined with any other offer or discount, and shipping fees and sales tax are separate. To prevent abuse, prices, specifications, and availability subject to change without notice from Expressionery.com.<br /><br />*Limited time offer valid through November 23 at 11:55 PM CST.  Save 30% off Gifts for Girl Friends products with offer code "THANKFUL30". Certain exclusions apply: any products outside the \'Gifts for Girlfriends\' category.  This offer may not be combined with any other offer or discount, and shipping fees and sales tax are separate. To prevent abuse, prices, specifications, and availability subject to change without notice from Expressionery.com.<br /><br />',
+		'*Limited time offer valid through November 23 at 11:55 PM CST.  Save 30% off Holiday Photo Cards with offer code "CIDER30". Certain exclusions apply: any products outside the \'Holiday Photo Cards\' category.  This offer may not be combined with any other offer or discount, and shipping fees and sales tax are separate. To prevent abuse, prices, specifications, and availability subject to change without notice from Expressionery.com.<br /><br />*Limited time offer valid through November 23 at 11:55 PM CST.  Receive 30% off all stamps with offer code "FROSTY14."  Standard retail price of stamp must be $40 or more.  Embossers, stamp refills and alignment tools not included. This offer may not be combined with any other offer or discount, and shipping fees and sales tax are separate. To prevent abuse, prices, specifications, and availability subject to change without notice from Expressionery.com.<br /><br />*Limited time offer valid through November 23 at 11:55 PM CST.  Receive one free set of 120 address labels with the purchase of any holiday photo cards with  offer code "PUMPKIN14." Certain exclusions apply: any products outside the \'Holiday Photo Cards\' or \'Holiday Address Labels\' category.  This offer may not be combined with any other offer or discount, and shipping fees and sales tax are separate. To prevent abuse, prices, specifications, and availability subject to change without notice from Expressionery.com.<br /><br />*Limited time offer valid through November 23 at 11:55 PM CST.  Save 30% off Gifts for Girl Friends products with offer code "THANKFUL30". Certain exclusions apply: any products outside the \'Gifts for Girlfriends\' category.  This offer may not be combined with any other offer or discount, and shipping fees and sales tax are separate. To prevent abuse, prices, specifications, and availability subject to change without notice from Expressionery.com.<br /><br />*Limited time offer valid through November 23 at 11:55 PM CST. Recieve one free set of 80 holiday gift tag labels with the purchase of $50 or more with offer code "JINGLEBELLS14". Certain exclusions apply: any products outside the \'Holiday Gift Tag Labels\' category. This offer may not be combined with any other offer or discount, and shipping fees and sales tax are separate. To prevent abuse, prices, specifications, and availability subject to change without notice from Expressionery.com.<br /><br />'
+	]
+	promoLegal.innerHTML = legal[i];
 }
 
 function addPromoCode() {
@@ -87,7 +101,7 @@ function showInactiveMessage(){
 	//console.log( promoDate );
 	var promoTag = promoTags[i];
 
-	promoItem[i].addEventListener('click', function() { 
+	promoTags[i].addEventListener('click', function() { 
 		shake(promoTag);
 		if ( window.getComputedStyle(theInactiveMessage).getPropertyValue('opacity') == 0 ) {
 			createInactiveMessage(theInactiveMessage, promoDate);
@@ -98,7 +112,7 @@ function showInactiveMessage(){
 
 function createInactiveMessage(theInactiveMessage, promoDate) {
 	var node = theInactiveMessage;
-	var textNode = '<p>Don\'t open until <span>11/' + promoDate + '/14</span></p>';
+	var textNode = '<p>Don\'t open until <span>11&ndash;' + promoDate + '&ndash;14</span></p>';
 	node.innerHTML = textNode;
 }
 
@@ -107,6 +121,9 @@ function revealInactiveMessage(theInactiveMessage) {
 	tl.from(theInactiveMessage, 0.25, {top: -50})
 	.from(theInactiveMessage, 0.3, {opacity: 0}, 0.05)
 	.to(theInactiveMessage, 0.3, {opacity: 1}, 0.05)
+	.to(theInactiveMessage, 0.4, {opacity: 0, top: -50}, 3)
+	.to(theInactiveMessage, 0.4, {top: 0})
+
 
 }
 
@@ -117,7 +134,7 @@ function revealPromo() {
 	.to(promoTag, 0.15, {top: -10 })
 	.to(promoTag, 0.4, {top: -275 })
 	.to(promoContainer, 0.3, {opacity: 1}, 0.3)
-	promoItem[i].addEventListener('click', function() { shake(promoTag) }, false);
+	promoTags[i].addEventListener('click', function() { shake(promoTag) }, false);
 }
 
 function shake(promoTag) {
