@@ -7,7 +7,11 @@ var promoTags = document.getElementsByClassName('promoImage');
 var promoCode = document.getElementsByClassName('promoCode');
 var promoContainer = document.getElementsByClassName('promoContainer');
 var inactiveMessage = document.getElementsByClassName('inactiveMessage');
+var allLegal;
+var legalContainer;
+var legal;
 var promoLegal = document.getElementById('legal');
+var showHideTrigger = document.getElementById('showHide');
 var promoDates = [today-2, today-1, today, today+1, today+2];
 //var promoDates = [17, 18, 19, 20, 21];
 var promoDate;
@@ -22,6 +26,10 @@ var theDateTest = function theDateTest( isValid ) {
 	if( isValid ) {
 		thePromo( validDates );
 	}
+	allLegal = document.getElementById('allLegal').offsetHeight;
+		legalContainer = document.getElementById('legalContainer');
+			showHide(legalContainer, allLegal);
+	
 }
 
 function theMonth( isValid ) {
@@ -174,4 +182,26 @@ function getRotation(promoTag) {
 	return angle;
 	// works!
 	//console.log('Rotate: ' + angle + 'deg');
+}
+
+
+function showHide(legalContainer, allLegal) {
+	
+	console.log(legal)
+	showHideTrigger.addEventListener('click', function () {
+		var legal = legalContainer.offsetHeight;
+		if ( legal == 0 ) {
+			console.log(legal)
+			var tl = new TimelineMax({ yoyo:true});
+			tl.to(legalContainer, .15, {height: allLegal})
+			showHideTrigger.innerHTML = "Hide Promotional Offer Details"
+		} else if( legal <= allLegal ) {
+			console.log(legal)
+			var tl = new TimelineMax;
+			tl.to(legalContainer, .15, {height: 0 });
+			showHideTrigger.innerHTML = "Show Promotional Offer Details"
+		}
+		legal = legalContainer.offsetHeight;
+	})
+
 }
