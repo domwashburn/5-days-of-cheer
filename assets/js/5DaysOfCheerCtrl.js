@@ -1,5 +1,6 @@
 var date = new Date();
 var month = date.getMonth() + 1;
+var testMonth = month;
 var today = date.getDate();
 var ary = [];
 var promoItem = document.getElementsByClassName('promoItem');
@@ -33,7 +34,7 @@ var theDateTest = function theDateTest( isValid ) {
 }
 
 function theMonth( isValid ) {
-	if( month == 11 ) {
+	if( month <= testMonth ) {
 		isValid = theDate( isValid );
 		//console.log( isValid );	
 		return isValid;
