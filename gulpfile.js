@@ -142,3 +142,7 @@ gulp.task('default', function() {
         gulp.run('js-concat');
     });
 });
+
+gulp.task('brackets-default', function() {
+    gulp.run('default');
+});
