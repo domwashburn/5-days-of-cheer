@@ -194,12 +194,12 @@ function showHide(legalContainer, allLegal) {
 		if ( legal == 0 ) {
 			console.log(legal)
 			var tl = new TimelineMax({ yoyo:true});
-			tl.to(legalContainer, .15, {height: allLegal})
+			tl.to(legalContainer, .3, {height: allLegal})
 			showHideTrigger.innerHTML = "Hide Promotional Offer Details"
 		} else if( legal <= allLegal ) {
 			console.log(legal)
 			var tl = new TimelineMax;
-			tl.to(legalContainer, .15, {height: 0 });
+			tl.to(legalContainer, .3, {height: 0 });
 			showHideTrigger.innerHTML = "Show Promotional Offer Details"
 		}
 		legal = legalContainer.offsetHeight;
