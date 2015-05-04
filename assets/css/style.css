@@ -362,7 +362,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   position: relative;
   width: 100%;
   height: 17px;
-  background-image: url("/resources/store/images/expressionery/special-offers/5-days-of-cheer/cheer-stripes.png");
+  background-image: url("../images/cheer-stripes.png");
   background-repeat: repeat-x;
   z-index: 100;
 }
