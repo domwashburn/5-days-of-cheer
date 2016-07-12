@@ -27,7 +27,7 @@ One word to describe animating context-based rotations (rotating based on the el
 
 
 ## TL;DR
-Worked with the marketing department to create an highly custom interactive promotion for Black Friday 2015.
+Worked with the marketing department to create an highly custom interactive promotion for Black Friday 2014.
 
 The JQuery version on the site was unknown and unreliable due to a highly customized implementation.
  
